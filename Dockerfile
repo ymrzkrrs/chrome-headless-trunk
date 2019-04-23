@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM ubuntu:14.04
 
 LABEL maintainer "Alpeware <info@alpeware.com>"
 
@@ -20,6 +20,12 @@ RUN wget -q -O chrome.zip https://commondatastorage.googleapis.com/chromium-brow
   && unzip chrome.zip \
   && rm chrome.zip \
   && ln -s $PWD/chrome-linux/chrome /usr/bin/google-chrome-unstable
+
+## Install pip
+RUN apt-get update && \
+    apt-get install -y python3-pip && \
+    pip3 install --upgrade pip
+RUN pip3 install pip==19.0.3
 
 RUN google-chrome-unstable --version
 
