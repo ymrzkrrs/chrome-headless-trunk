@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM python:3.6
 
 LABEL maintainer "Alpeware <info@alpeware.com>"
 
